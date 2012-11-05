@@ -3,6 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
     
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+       	/>
+    
 	<!--
 	@+ 는 지금 여기서 아이디를 생성하겠다.
 	-->
