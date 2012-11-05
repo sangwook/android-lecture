@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff0000" >
+    
+	<!--
+	@+ 는 지금 여기서 아이디를 생성하겠다.
+	-->
+        
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/hello_world"
+        tools:context=".MainActivity" />
+
+    <!-- match_parent로 변경하니 사이즈가 커진다 -->
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_above="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="73dp"
+        android:text="TextViasdfASDFASDFASDF한글한글하미너이ㅏ러미나어리마너이러미나어리만ew"
+        android:background="#ff0000"
+        />
+
+    <Button
+        android:id="@+id/testButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_marginRight="21dp"
+        android:layout_marginTop="19dp"
+        android:text="Button"
+        />
+       <!-- android:onClick="OnClickTestButton" -->
+       <!-- xml에 직접 onclick을 넣을 수도 있지만 이건 불편하다. -->
+</RelativeLayout>
