@@ -3,6 +3,7 @@ package com.example.secondclasslayout;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.widget.Spinner;
 
 public class MainActivity extends Activity {
 
@@ -10,6 +11,8 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        Spinner spin = (Spinner) findViewById(R.id.spinnerTest);
     }
 
     @Override
