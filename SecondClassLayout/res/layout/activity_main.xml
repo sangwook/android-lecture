@@ -2,7 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-
+    
+	<!--
+	android 기본 기본을 쓰려면 id를 android: 로 지정하고. R은 android.R.id. 로 지정.
+	-->
     <Spinner
         android:id="@+id/spinnerTest"
         android:layout_width="wrap_content"
