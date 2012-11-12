@@ -14,7 +14,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
        
         //SpinnerAdapter 는 구현해야 할게 너무 많으니까 일단 String이 들어가는 어댑터로 만듬
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.custom_item);
         adapter.add("ABC");
         adapter.add("ABC");
         adapter.add("ABC");
