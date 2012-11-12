@@ -1,4 +1,4 @@
-package com.example.sosi;
+package com.example.sosi2;
 
 import android.os.Bundle;
 import android.app.Activity;
