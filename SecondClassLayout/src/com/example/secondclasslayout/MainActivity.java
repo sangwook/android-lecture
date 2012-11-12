@@ -2,6 +2,7 @@ package com.example.secondclasslayout;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.TabActivity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
@@ -13,7 +14,7 @@ import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 import android.widget.TextView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends TabActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,7 +64,7 @@ public class MainActivity extends Activity {
 //        spin.setAdapter(adapter);
         
         TabHost myTab = (TabHost) findViewById(R.id.myTab);
-        myTab.setup();
+        myTab.setup(getLocalActivityManager());
         TabSpec tabspec = myTab.newTabSpec("TAB1").setContent(new Intent(this,RedActivity.class)).setIndicator("TAB1");
         TabSpec tabspec2 = myTab.newTabSpec("TAB1").setContent(new Intent(this,RedActivity.class)).setIndicator("TAB1");
         myTab.addTab(tabspec);
