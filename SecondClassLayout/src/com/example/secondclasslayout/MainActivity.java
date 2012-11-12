@@ -14,7 +14,7 @@ import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 import android.widget.TextView;
 
-public class MainActivity extends TabActivity {
+public class MainActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,12 +63,12 @@ public class MainActivity extends TabActivity {
 //        Spinner spin = (Spinner) findViewById(R.id.spinnerTest);
 //        spin.setAdapter(adapter);
         
-        TabHost myTab = (TabHost) findViewById(R.id.myTab);
-        myTab.setup(getLocalActivityManager());
-        TabSpec tabspec = myTab.newTabSpec("TAB1").setContent(new Intent(this,RedActivity.class)).setIndicator("TAB1");
-        TabSpec tabspec2 = myTab.newTabSpec("TAB1").setContent(new Intent(this,RedActivity.class)).setIndicator("TAB1");
-        myTab.addTab(tabspec);
-        myTab.addTab(tabspec2);
+//        TabHost myTab = (TabHost) findViewById(R.id.myTab);
+////        myTab.setup(getLocalActivityManager());
+//        TabSpec tabspec = myTab.newTabSpec("TAB1").setContent(new Intent(this,RedActivity.class)).setIndicator("TAB1");
+//        TabSpec tabspec2 = myTab.newTabSpec("TAB1").setContent(new Intent(this,RedActivity.class)).setIndicator("TAB1");
+//        myTab.addTab(tabspec);
+//        myTab.addTab(tabspec2);
     }
 
     @Override

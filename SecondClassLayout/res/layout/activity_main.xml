@@ -2,34 +2,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
+  
+    <EditText
+        android:background="@drawable/btn_toggle_off_pressed_holo_dark"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        />
     
 	<!--
 	android 기본 기본을 쓰려면 id를 android: 로 지정하고. R은 android.R.id. 로 지정.
 	-->
-    <Spinner
-        android:id="@+id/spinnerTest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
+<!--     <Spinner -->
+<!--         android:id="@+id/spinnerTest" -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         /> -->
     
-    <TabHost 
-        android:id="@+id/myTab">
-        <LinearLayout
-        	android:layout_width="match_parent" 
-        	android:layout_height="match_parent" 
-        	android:orientation="vertical" 
-            >
-	        <TabWidget
-	            android:id="@android:id/tabs">
+<!--     <TabHost  -->
+<!--         android:id="@+id/myTab"> -->
+<!--         <LinearLayout -->
+<!--         	android:layout_width="match_parent"  -->
+<!--         	android:layout_height="match_parent"  -->
+<!--         	android:orientation="vertical"  -->
+<!--             > -->
+<!-- 	        <TabWidget -->
+<!-- 	            android:id="@android:id/tabs"> -->
 	            
-	        </TabWidget>
-	        <FrameLayout
-	            android:id="@android:id/tabcontent"
-	            android:layout_weight="1.0"
-	            >
+<!-- 	        </TabWidget> -->
+<!-- 	        <FrameLayout -->
+<!-- 	            android:id="@android:id/tabcontent" -->
+<!-- 	            android:layout_weight="1.0" -->
+<!-- 	            > -->
 	            
-	        </FrameLayout>
-        </LinearLayout>
-    </TabHost>
+<!-- 	        </FrameLayout> -->
+<!--         </LinearLayout> -->
+<!--     </TabHost> -->
 
 </RelativeLayout>
