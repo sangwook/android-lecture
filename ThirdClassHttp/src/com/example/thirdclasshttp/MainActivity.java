@@ -47,6 +47,8 @@ public class MainActivity extends Activity {
 			protected void onPostExecute(String result) {
 //				Pattern p = Pattern.compile("<em class=\"curPrice");
 //				Matcher m = k
+				//여기서 패턴 매칭해서. 다음 주가 가져와서.
+				//Textview 의 텍스트를 바꾸는 작업이 있음
 						
 				Log.e("SANGWOOK-onPostExecute",result);
 				Toast.makeText(MainActivity.this, result, Toast.LENGTH_LONG).show();
