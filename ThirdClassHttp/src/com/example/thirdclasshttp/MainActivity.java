@@ -32,10 +32,11 @@ public class MainActivity extends Activity {
 
 			@Override
 			protected String doInBackground(String... params) {
+				String buf ="";
 				for(int i=0 ; i<params.length ; i++) {
-					doReq(params[i]);
+					buf += doReq(params[i]);
 				}
-				return null;
+				return buf;
 			}
     		
 			protected void onPostExecute(String result) {
