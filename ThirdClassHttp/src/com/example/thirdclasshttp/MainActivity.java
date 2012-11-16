@@ -3,6 +3,7 @@ package com.example.thirdclasshttp;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 import org.apache.http.HttpResponse;
@@ -17,13 +18,73 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends ListActivity {
 
+	public static class Idol {
+		public String title;
+		public String desc;
+		
+		public Idol(String title,String desc) {
+			this.title = title;
+			this.desc = desc;
+		}
+	}
+	
+    public static class IdolAdapter extends BaseAdapter {
+        	
+        	private ArrayList<Idol> data = new ArrayList<MainActivity.Idol>();
+        	private LayoutInflater inf;
+        	public IdolAdapter(LayoutInflater inf) {
+        		this.inf = inf;
+        	}
+        	
+        	public void addIdol(Idol idol) {
+        		data.add(idol);
+        	}
+
+			@Override
+			public int getCount() {
+				return data.size();
+			}
+
+			@Override
+			public Object getItem(int position) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public long getItemId(int position) {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+
+			@Override
+			public View getView(int position, View convertView, ViewGroup parent) {
+				if(convertView==null) {
+					convertView = inf.inflate(R.layout.custom_item,null);
+					
+				}
+				Idol idol = data.get(position);
+				TextView textView = (TextView) convertView.findViewById(R.id.title);
+				textView.setText(idol.title);
+				
+				TextView textView2 = (TextView) convertView.findViewById(R.id.desc);
+				textView2.setText(idol.title);
+				
+				return convertView;
+			}
+        	
+        }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +92,14 @@ public class MainActivity extends ListActivity {
         
 //        String[] arr = new String[]{"abasdf","asdf"};
         String[] arr = new String[]{};
-        ArrayAdapter<String> adapter = 
-        		new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arr);
+        IdolAdapter adapter = new IdolAdapter(getLayoutInflater());
+        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf"));
+        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf"));
+        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf"));
+        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf"));
+        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf"));
+        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf"));
+        
         this.setListAdapter(adapter);
     }
     
