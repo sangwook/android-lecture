@@ -15,17 +15,24 @@ import org.apache.http.util.EntityUtils;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.ListActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class MainActivity extends ListActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        String[] arr = new String[]{"abasdf","asdf"};
+        ArrayAdapter<String> adapter = 
+        		new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arr);
+        this.setListAdapter(adapter);
     }
     
     
