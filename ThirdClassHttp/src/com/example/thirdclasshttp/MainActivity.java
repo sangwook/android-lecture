@@ -9,12 +9,14 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -36,18 +38,21 @@ public class MainActivity extends Activity {
 				return null;
 			}
     		
+			protected void onPostExecute(String result) {
+				Toast.makeText(MainActivity.this, result, Toast.LENGTH_LONG).show();
+				super.onPostExecute(result);
+			}
     	};
     }
     
-    public void doReq(String url) {
+    public String doReq(String url) {
     	HttpClient client = new DefaultHttpClient();
     	HttpGet get = new HttpGet("http://stock.daum.net/item/main.daum?code=035720");
     	HttpResponse res;
 		try {
 			res = client.execute(get);
-	    	InputStream is = res.getEntity().getContent();
-	    	//BufferedInputStream br = new BufferedInputStream(is);
-	    	
+	    	String content = EntityUtils.toString(res.getEntity(),"UTF-8");
+	    	return content;
 		} catch (ClientProtocolException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -55,6 +60,7 @@ public class MainActivity extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return "";
     }
 
     @Override
