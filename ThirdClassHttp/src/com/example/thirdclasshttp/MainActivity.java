@@ -10,6 +10,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -23,7 +24,22 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
     }
     
+    
     public void onClick(View view) {
+    	AsyncTask<String,Void,String> task = new AsyncTask<String, Void, String>() {
+
+			@Override
+			protected String doInBackground(String... params) {
+				for(int i=0 ; i<params.length ; i++) {
+					doReq(params[i]);
+				}
+				return null;
+			}
+    		
+    	};
+    }
+    
+    public void doReq(String url) {
     	HttpClient client = new DefaultHttpClient();
     	HttpGet get = new HttpGet("http://stock.daum.net/item/main.daum?code=035720");
     	HttpResponse res;
