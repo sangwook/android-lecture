@@ -32,10 +32,21 @@ public class MainActivity extends ListActivity {
 	public static class Idol {
 		public String title;
 		public String desc;
+		public int type = 0; // 0,1
 		
-		public Idol(String title,String desc) {
+		public int getLayoutId() {
+			if(type==0) {
+				return R.layout.custom_item;
+			}
+			else {
+				return R.layout.custom_item2;
+			}
+		}
+		
+		public Idol(String title,String desc,int type) {
 			this.title = title;
 			this.desc = desc;
+			this.type = type;
 		}
 	}
 	
@@ -70,20 +81,33 @@ public class MainActivity extends ListActivity {
 
 			@Override
 			public View getView(int position, View convertView, ViewGroup parent) {
-				if(convertView==null) {
-					convertView = inf.inflate(R.layout.custom_item,null);
-					
-				}
 				Idol idol = data.get(position);
-				TextView textView = (TextView) convertView.findViewById(R.id.title);
-				textView.setText(idol.title);
 				
-				TextView textView2 = (TextView) convertView.findViewById(R.id.desc);
-				textView2.setText(idol.title);
+				if(convertView==null) {
+					convertView = inf.inflate(idol.getLayoutId(),null);
+				}
 				
+				if(idol.type == 0) {
+					TextView textView = (TextView) convertView.findViewById(R.id.title);
+					textView.setText(idol.title);
+					
+					TextView textView2 = (TextView) convertView.findViewById(R.id.desc);
+					textView2.setText(idol.title);
+				} else {
+					TextView textView = (TextView) convertView.findViewById(R.id.title);
+					textView.setText(idol.title);
+				}
 				return convertView;
 			}
-        	
+			
+			public int getItemViewType(int position) {
+				Idol idol = data.get(position);
+				return idol.type;
+			}
+			
+			public int getViewTypeCount() {
+				return 2;
+			}
         }
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -91,14 +115,22 @@ public class MainActivity extends ListActivity {
         setContentView(R.layout.activity_main);
         
 //        String[] arr = new String[]{"abasdf","asdf"};
-        String[] arr = new String[]{};
         IdolAdapter adapter = new IdolAdapter(getLayoutInflater());
-        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf"));
-        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf"));
-        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf"));
-        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf"));
-        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf"));
-        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf"));
+        adapter.addIdol(new Idol("ºå·ù1","asdf",1));
+        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf",0));
+        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf",0));
+        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf",0));
+        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf",0));
+        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf",0));
+        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf",0));
+        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf",0));
+        adapter.addIdol(new Idol("ºÐ·ù2","asdf",1));
+        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf",0));
+        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf",0));
+        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf",0));
+        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf",0));
+        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf",0));
+        adapter.addIdol(new Idol("¼Ò³à½Ã´ë","asdf",0));
         
         this.setListAdapter(adapter);
     }
