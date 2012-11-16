@@ -29,7 +29,8 @@ public class MainActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        String[] arr = new String[]{"abasdf","asdf"};
+//        String[] arr = new String[]{"abasdf","asdf"};
+        String[] arr = new String[]{};
         ArrayAdapter<String> adapter = 
         		new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arr);
         this.setListAdapter(adapter);
