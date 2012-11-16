@@ -3,6 +3,7 @@ package com.example.thirdclasshttp;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.regex.Pattern;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -14,6 +15,7 @@ import org.apache.http.util.EntityUtils;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
@@ -28,6 +30,7 @@ public class MainActivity extends Activity {
     
     
     public void onClick(View view) {
+    	Log.e("sangwok.onclick","");
     	AsyncTask<String,Void,String> task = new AsyncTask<String, Void, String>() {
 
 			@Override
@@ -35,20 +38,27 @@ public class MainActivity extends Activity {
 				String buf ="";
 				for(int i=0 ; i<params.length ; i++) {
 					buf += doReq(params[i]);
+					Log.e("SANGWOOK",buf);
 				}
 				return buf;
 			}
     		
+			@Override
 			protected void onPostExecute(String result) {
+//				Pattern p = Pattern.compile("<em class=\"curPrice");
+//				Matcher m = k
+						
+				Log.e("SANGWOOK-onPostExecute",result);
 				Toast.makeText(MainActivity.this, result, Toast.LENGTH_LONG).show();
 				super.onPostExecute(result);
 			}
     	};
+    	task.execute("http://stock.daum.net/item/main.daum?code=035720");
     }
     
     public String doReq(String url) {
     	HttpClient client = new DefaultHttpClient();
-    	HttpGet get = new HttpGet("http://stock.daum.net/item/main.daum?code=035720");
+    	HttpGet get = new HttpGet(url);
     	HttpResponse res;
 		try {
 			res = client.execute(get);
